@@ -45,7 +45,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Trackr</a>
+        <%= link_to "Trackr", root_path, class: "navbar-brand" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
@@ -53,6 +53,19 @@
             <li><%= link_to "Due this week", user_week_path(current_user)  %></li>
             <li><%= link_to "All tasks", user_tasks_path(current_user)  %></li>
           <% end %>
+          </ul>
+          <ul class="nav navbar-right col-md-4">
+            <% if current_user %>
+              <li class="col-md-8 user-name">
+                <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe,edit_user_registration_path, title: 'Edit Profile' %>
+              </li>
+              <li class="col-md-1"> </li>
+              <li class="col-md-3 logout"><%= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
+            <% else %>
+              <li class="col-md-4 pull-right">
+                <%= link_to('Sign In', new_user_session_path, class: 'btn btn-primary', title: 'Sign In') %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -64,9 +77,9 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-      <footer>
+<!--       <footer>
         <p>&copy; Code Miners 2016</p>
-      </footer>
+      </footer> -->
 
     </div> <!-- /container -->
 
