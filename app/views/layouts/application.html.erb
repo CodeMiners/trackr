@@ -49,9 +49,8 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-            <li><%= link_to "Tasks", user_tasks_path(current_user)  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "Due today", user_today_path(current_user)  %></li>
+            <li><%= link_to "All tasks", user_tasks_path(current_user)  %></li>
           <% end %>
           </ul>
         </div>

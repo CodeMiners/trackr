@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   # GET /tasks/1
@@ -51,6 +51,10 @@ class TasksController < ApplicationController
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def today
+    @tasks = current_user.tasks.where(completion_date: Date.today)
   end
 
   # DELETE /tasks/1
