@@ -5,24 +5,28 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Complete?</th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:details) %></th>
       <th><%= model_class.human_attribute_name(:completion_date) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= link_to task.id, user_task_path(task.user, task) %></td>
+        <td>
+          <% if task.complete? %>
+            <i class="glyphicon glyphicon-check"></i>
+          <% else %>
+            <%= link_to complete_user_task_path(task.user, task), method: :post do %>
+              <i class='glyphicon glyphicon-unchecked'></i>
+            <% end %>
+          <% end %>
+        </td>
         <td><%= task.title %></td>
         <td><%= task.details %></td>
         <td><%= task.completion_date %></td>
-        <td><%= task.user.email %></td>
-        <td><%=l task.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_task_path(task.user, task), :class => 'btn btn-default btn-xs' %>
