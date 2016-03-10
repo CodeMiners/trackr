@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :complete]
 
   # GET /tasks
   # GET /tasks.json
@@ -67,6 +67,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def complete
+    @task.update_attributes(complete: true)
+    redirect_to user_tasks_path
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
