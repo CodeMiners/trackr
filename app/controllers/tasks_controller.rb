@@ -53,10 +53,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def today
-    @tasks = current_user.tasks.where(completion_date: Date.today)
-  end
-
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
@@ -65,6 +61,14 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def today
+    @tasks = current_user.tasks.where(completion_date: Date.today)
+  end
+
+  def week
+    @tasks = current_user.tasks.where(completion_date: Date.today..Date.today+7)
   end
 
   private

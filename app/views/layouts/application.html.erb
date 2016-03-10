@@ -50,6 +50,7 @@
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
             <li><%= link_to "Due today", user_today_path(current_user)  %></li>
+            <li><%= link_to "Due this week", user_week_path(current_user)  %></li>
             <li><%= link_to "All tasks", user_tasks_path(current_user)  %></li>
           <% end %>
           </ul>
