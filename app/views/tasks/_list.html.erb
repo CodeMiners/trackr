@@ -17,10 +17,10 @@
       <tr>
         <td>
           <% if task.complete? %>
-            <i class="glyphicon glyphicon-check"></i>
+            <i class="fa fa-check-square-o"></i>
           <% else %>
             <%= link_to complete_user_task_path(task.user, task), method: :post do %>
-              <i class='glyphicon glyphicon-unchecked'></i>
+              <i class="fa fa-square-o"></i>
             <% end %>
           <% end %>
         </td>
