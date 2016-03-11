@@ -16,6 +16,8 @@ People may find it difficult to manage the daily tasks/to-do's without having a 
 
 #### TODO
 
-	* Complete Button
+	* Complete - (safari)
 	* Deploy to Heroku
-	* 
+	* Setup Sengrid
+	* Fix datepicker
+	* Add validations

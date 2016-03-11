@@ -1,22 +1,9 @@
-<<<<<<< HEAD
 <% if current_user %>
 	<h3>Welcome: <%= current_user.email %></h3>
 <% else %>
-	<div class="site-header">
-		<h2>Trackr</h2>
-		<p class="lead">
-			Task tracking made simple
-		</p>
-		<p class="lead">
-			<%= link_to "Sign up", new_user_registration_path %> Today!
-		</p>
-	</div>
-<% end %>
-
-=======
 <div class="jumbotron center">
   <h1>TASKR</h1>
   <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-success btn-lg btn-xlarge" %>
   <h2 class='lead'>Get stuff done.</h2>
 </div>
->>>>>>> 596d97732eb385f20afcd3c947cc7536a558efd3
+<% end %>

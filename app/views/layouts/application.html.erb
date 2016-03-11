@@ -57,21 +57,10 @@
           <ul class="nav navbar-right col-md-4">
             <% if current_user %>
               <li class="col-md-8 user-name">
-<<<<<<< HEAD
                 <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe,edit_user_registration_path, title: 'Edit Profile' %>
               </li>
               <li class="col-md-1"> </li>
               <li class="col-md-3 logout"><%= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
-=======
-                <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe,
-                             edit_user_registration_path, title: 'Edit Profile' %>
-              </li>
-              <li class="col-md-1"></li>
-              <li class="col-md-3 logout">
-                <%= link_to('Logout', destroy_user_session_path,
-                            class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %>
-              </li>
->>>>>>> 596d97732eb385f20afcd3c947cc7536a558efd3
             <% else %>
               <li class="col-md-4 pull-right">
                 <%= link_to('Sign In', new_user_session_path, class: 'btn btn-primary', title: 'Sign In') %>
