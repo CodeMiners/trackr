@@ -34,7 +34,7 @@ class TasksController < ApplicationController
         format.html { redirect_to user_tasks_path(@task), notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
-        format.html { render :new }
+        format.html { redirect_to new_user_task_path(current_user), error: 'There was a problem creating task.' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -89,6 +89,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :details, :user_id)
+      params.require(:task).permit(:title, :details, :user_id, :completion_date)
     end
 end
