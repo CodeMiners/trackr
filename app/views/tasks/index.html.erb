@@ -1,1 +1,10 @@
-<%= render 'list' %>
+<% if @tasks.size > 0 %>
+	<%= render 'list' %>
+<% else %>
+	<h2>Add tasks below! :)</h2>
+<% end %>
+
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_user_task_path,
+            :class => 'btn btn-primary' %>
