@@ -29,9 +29,9 @@
     <%=f.error_span(:details) %>
   </div>
   <div class="form-group">
-    <%= f.label :completion_date, :class => 'control-label col-lg-2' %>
+    <%= f.label "Due date", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :completion_date, :class => 'form-control datepicker' %>
+      <%= f.date_field :completion_date, :class => 'form-control datepicker' %>
     </div>
     <%=f.error_span(:completion_date) %>
   </div>
